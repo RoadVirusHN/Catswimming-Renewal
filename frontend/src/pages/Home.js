@@ -2,7 +2,7 @@ import React from 'react'
 import {InputGroup, Button, FormControl, Container, Row, Form} from 'react-bootstrap'
 import catswim from "../images/catswim2.png"
 import Board from "../componenets/Board"
-import axios from 'axios'
+import backend from "../http-common"
 
 
 const Home = ({history, props, setSearchloading}) => {
@@ -32,10 +32,9 @@ const Home = ({history, props, setSearchloading}) => {
         setLoading(true)
         setData(inputdata);
         setSearchloading(true)
-        axios.get(`http://i02c102.p.ssafy.io:5000/search/${boardState}/${inputdata}/${page}`)
+        backend.get(`/search/${boardState}/${inputdata}/${page}`)
         .then(
             (res)=>{
-                console.log(res.data)
                 setRealdata(res.data)
                 setSearchloading(false)
             }
@@ -43,7 +42,7 @@ const Home = ({history, props, setSearchloading}) => {
             console.log(e)
         })
         // 다음페이지 미리 로딩
-        axios.get(`http://i02c102.p.ssafy.io:5000/search/${boardState}/${inputdata}/${page + 1}`)
+        backend.get(`/search/${boardState}/${inputdata}/${page + 1}`)
         .then(
             (res)=>{
                 setPage(page + 1)
@@ -65,7 +64,7 @@ const Home = ({history, props, setSearchloading}) => {
         setLoading(true)
         setRealdata(realdata.concat(nextdata))
         setNextdata([])
-        axios.get(`http://i02c102.p.ssafy.io:5000/search/${boardState}/${inputdata}/${page + 1}`)
+        backend.get(`/search/${boardState}/${inputdata}/${page + 1}`)
             .then((res)=>{
                 console.log(res.data)
                 setNextdata(res.data)

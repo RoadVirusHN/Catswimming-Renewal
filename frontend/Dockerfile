@@ -9,4 +9,7 @@ FROM mhart/alpine-node
 RUN yarn global add serve
 WORKDIR /app
 COPY --from=builder /app/build .
-CMD ["serve", "-p", "8000", "-s", "."]doc
+CMD ["serve", "-p", "80", "-s", "."]doc
+
+# docker build -t frontend/test .
+# docker run -p 80:80 frontend/test

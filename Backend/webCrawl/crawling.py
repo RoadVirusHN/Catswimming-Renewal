@@ -20,7 +20,7 @@ def MaskingTemplateText(text):
 def search(menu, keyword, page):
     base_url = "https://cafe.naver.com/joonggonara"
     headers = { # 헤더를 넣지 않아도 작동하는 것을 확인했습니다.
-    "cookie" : config("cookie"),
+    # "cookie" : config("cookie"),
     'Content-Type': 'application/json; charset=utf-8',
     'Accept-Language': 'ko-KR,ko;q=0.9,en-US',
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36'
@@ -97,7 +97,7 @@ def search(menu, keyword, page):
         try: 
             date = data.select_one("div.tit-box > div.fr > table > tbody > tr > td.m-tcol-c.date").text
         except:
-            date="2020. 04. 24"
+            date="2022. 11. 02"
         one = {"title": title, "user": user, "category": category, "price": price, "content": content, "date": date, "url": base_url+url}
         return one
 

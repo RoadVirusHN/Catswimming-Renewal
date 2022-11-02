@@ -1,6 +1,6 @@
 import React from 'react'
 import {Table, Button, Modal, Form} from 'react-bootstrap'
-import axios from 'axios'
+import backend from "../http-common"
 
 const Board = ({realdata, filterState}) => {
     const [show, setShow] = React.useState(false);
@@ -18,7 +18,7 @@ const Board = ({realdata, filterState}) => {
         console.log(optionState)
         data.report = optionState
         console.log(data)
-        axios.post("http://i02c102.p.ssafy.io:5000/report", data)
+        backend.post("/report", data)
         .then((res)=>{
             console.log(res)
         })

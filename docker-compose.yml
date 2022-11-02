@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+    cat_backend:
+        build:
+          context: ./backend
+          dockerfile: Dockerfile
+        ports:
+          - 8000:8000
+        networks:
+          - default_network
+
+    cat_front:
+        build: 
+          context: ./frontend
+          dockerfile: Dockerfile
+        ports:
+          - 80:80
+        depends_on:
+          - cat_backend
+        networks:
+          - default_network
+
+    cat_doccano:
+        build: 
+          context: ./doccano
+          dockerfile: Dockerfile
+        ports:
+          - 4000:4000
+        volumes:
+          - ./doccano/doccano-db:/data
+        environment:
+            SERVER_PORT: 4000
+            ADMIN_USERNAME: ${ADMIN}
+            ADMIN_EMAIL: ${EMAIL}
+            ADMIN_PASSWORD: ${PASSWORD}
+        depends_on:
+          - cat_front
+        networks:
+          - default_network
+networks:
+    default_network:
