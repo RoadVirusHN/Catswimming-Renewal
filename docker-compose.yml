@@ -6,7 +6,7 @@ services:
           context: ./backend
           dockerfile: Dockerfile
         ports:
-          - 8000:8000
+          - 5000:5000
         networks:
           - default_network
 
@@ -26,11 +26,11 @@ services:
           context: ./doccano
           dockerfile: Dockerfile
         ports:
-          - 4000:4000
+          - 8000:8000
         volumes:
           - ./doccano/doccano-db:/data
         environment:
-            SERVER_PORT: 4000
+            SERVER_PORT: 8000
             ADMIN_USERNAME: ${ADMIN}
             ADMIN_EMAIL: ${EMAIL}
             ADMIN_PASSWORD: ${PASSWORD}
