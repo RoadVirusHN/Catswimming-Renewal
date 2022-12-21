@@ -2,41 +2,44 @@ version: "3"
 
 services:
     cat_backend:
+        image: roadvirushn/cat_backend
         build:
           context: ./backend
           dockerfile: Dockerfile
         ports:
           - 5000:5000
-        networks:
-          - default_network
+        # networks:
+        #   - cat_network
 
-    cat_front:
+    cat_frontend:
+        image: roadvirushn/cat_frontend
         build: 
           context: ./frontend
           dockerfile: Dockerfile
         ports:
           - 80:80
-        depends_on:
-          - cat_backend
-        networks:
-          - default_network
+        # depends_on:
+        #   - cat_backend
+        # networks:
+        #   - cat_network
 
-    cat_doccano:
-        build: 
-          context: ./doccano
-          dockerfile: Dockerfile
-        ports:
-          - 8000:8000
-        volumes:
-          - ./doccano/doccano-db:/data
-        environment:
-            SERVER_PORT: 8000
-            ADMIN_USERNAME: ${ADMIN}
-            ADMIN_EMAIL: ${EMAIL}
-            ADMIN_PASSWORD: ${PASSWORD}
-        depends_on:
-          - cat_front
-        networks:
-          - default_network
-networks:
-    default_network:
+    # cat_doccano:
+    #     image: roadvirushn/cat_doccano
+    #     build: 
+    #       context: ./doccano
+    #       dockerfile: Dockerfile
+    #     ports:
+    #       - 8000:8000
+    #     volumes:
+    #       - ./doccano/doccano-db:/data
+    #     environment:
+    #         SERVER_PORT: 8000
+    #         ADMIN_USERNAME: ${ADMIN}
+    #         ADMIN_EMAIL: ${EMAIL}
+    #         ADMIN_PASSWORD: ${PASSWORD}
+        # depends_on:
+        #   - cat_front
+        # networks:
+        #   - cat_network
+# networks:
+#     cat_network:

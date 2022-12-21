@@ -15,9 +15,7 @@ const Board = ({realdata, filterState}) => {
         setReportdata(data)
     }
     const report = (data) => {
-        console.log(optionState)
         data.report = optionState
-        console.log(data)
         backend.post("/report", data)
         .then((res)=>{
             console.log(res)
@@ -27,7 +25,12 @@ const Board = ({realdata, filterState}) => {
         })
         handleClose()
     }
-
+    function buildSearchData(realdata, time=0) {
+        if (time > 1) return null
+        if (typeof realdata.map === "function")
+            return realdata.map((data, index) => eachdata(data, index, data.isTrader));
+        return buildSearchData(realdata, time+1)
+    }
     const adButton = (data) => {
         const num = data.isTrader
         if (num > 0.5){
@@ -49,6 +52,8 @@ const Board = ({realdata, filterState}) => {
             if (advalue > 0.5){
                 return <></>
             }
+        } else if (data.title ==="error!"){
+            return <></>
         }
         return  (
             <tr key={index}>
@@ -74,7 +79,7 @@ const Board = ({realdata, filterState}) => {
                 </tr>
                 </thead>
                 <tbody>
-                    {realdata.map((data, index) => eachdata(data, index, data.isTrader))}
+                    {buildSearchData(realdata)}
                 </tbody>
 
                 <Modal show={show} onHide={handleClose} centered>
@@ -107,4 +112,7 @@ const Board = ({realdata, filterState}) => {
     )
 }
 
+Board.defaultProps = {
+    realdata: []
+}
 export default Board
