@@ -7,7 +7,7 @@
 
 ## 시연(Showcase)
 
-<a class="badge-anchor" target="_blank" rel="noopener noreferrer" href="http://ec2-3-35-170-5.ap-northeast-2.compute.amazonaws.com/" ><img style="margin: 3px;" class="badge" title="발표 자료" src="https://img.shields.io/badge/시연용 웹사이트(Showcase website)-skyblue?style=for-the-badge&logo=googlechrome"></a> <img src="https://badgen.net/badge/status/success/green" > 
+<a class="badge-anchor" target="_blank" rel="noopener noreferrer" href="http://ec2-3-36-169-198.ap-northeast-2.compute.amazonaws.com/" ><img style="margin: 3px;" class="badge" title="발표 자료" src="https://img.shields.io/badge/시연용 웹사이트(Showcase website)-skyblue?style=for-the-badge&logo=googlechrome"></a> <img src="https://badgen.net/badge/status/success/green" > 
 
 - 오래된 ML 모델로 인해 필터링 성능(75%=>50%)이 극히 낮습니다. 나중에 재학습 예정
 
@@ -18,7 +18,7 @@
 
 ## 데이터 레이블링 체험
 
-<a class="badge-anchor" target="_blank" rel="noopener noreferrer" href="http://ec2-3-35-171-132.ap-northeast-2.compute.amazonaws.com:8000/"><img style="margin: 3px;" class="badge" title="Doccano" src="https://img.shields.io/badge/Data Labeling Tool(Doccano)-darkgreen?style=for-the-badge&logo=googlechrome"></a> <img src="https://badgen.net/badge/status/success/green">
+<a class="badge-anchor" target="_blank" rel="noopener noreferrer" href="http://ec2-3-35-20-204.ap-northeast-2.compute.amazonaws.com:8000/"><img style="margin: 3px;" class="badge" title="Doccano" src="https://img.shields.io/badge/Data Labeling Tool(Doccano)-darkgreen?style=for-the-badge&logo=googlechrome"></a> <img src="https://badgen.net/badge/status/success/green">
 
 - 데이터 레이블링 체험을 위한 체험자용 아이디
 	- ID : visitor
